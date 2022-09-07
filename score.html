@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .board {
+            display: flex;
+            justify-content: space-around;
+            color: hsl(0, 0%, 75%);
+            font-size: 56px;
+            text-align: center;
+            cursor: context-menu;
+        }
+
+        .main {
+            border: 3px solid hsl(0, 31%, 18%);
+            border-radius: 10px;
+            width: 500px;
+            height: 400px;
+            background-color: hsl(0, 49%, 52%);
+            margin: auto;
+            padding: 50px;
+        }
+
+        #hscore,
+        #gscore {
+            padding: 10px;
+            color: hsl(0, 0%, 2%);
+            border: 1px solid hsl(0, 0%, 65%);
+            font-size: 64px;
+            text-align: center;
+            margin-bottom: 30px;
+            cursor: context-menu;
+        }
+
+        #h1,
+        #h2,
+        #h3,
+        #g1,
+        #g2,
+        #g3 {
+            padding: 3px;
+            color: hsl(0, 0%, 83%);
+            border: 1px solid hsl(0, 0%, 65%);
+            text-align: center;
+            font-size: 36px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        #reset {
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            color: wheat;
+            border: 1px solid hsl(0, 0%, 65%);
+            margin: 25px 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="board">
+            <div class="home">
+                HOME
+                <div id="hscore">0</div>
+                <div id="h1" onclick="h1()">+1</div>
+                <div id="h2" onclick="h2()">+2</div>
+                <div id="h3" onclick="h3()">+3</div>
+            </div>
+            <div class="guest">GUEST
+                <div id="gscore">0</div>
+                <div id="g1" onclick="g1()">+1</div>
+                <div id="g2" onclick="g2()">+2</div>
+                <div id="g3" onclick="g3()">+3</div>
+            </div>
+        </div>
+        <div id="reset" onclick="reset()">RESET</div>
+    </div>
+    <script>
+       
+        let home = document.getElementById("hscore")
+        let h = 0
+            home.textContent = h
+        let guest = document.getElementById("gscore")
+        let g = 0
+            guest.textContent = g
+       
+        function h1() { h += 1 ; home.textContent = h}
+        function h2() { h += 2 ; home.textContent = h}
+        function h3() { h += 3 ; home.textContent = h}
+        function g1() { g += 1 ; guest.textContent = g}
+        function g2() { g += 2 ; guest.textContent = g}
+        function g3() { g += 3 ; guest.textContent = g}
+        function reset() {
+            h = 0
+            g = 0
+            home.textContent = h
+            guest.textContent = g
+        }
+       
+    </script>
+</body>
+
+</html>
